@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Background from "./ui/Background";
+import Logo from "./ui/Logo";
+import NavLinks from "./ui/NavLinks";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,8 +29,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <header>LOGO</header>
-        <main>{children}</main>
+        <header>
+          <Logo />
+          <div className="nav-links">
+            <NavLinks />
+          </div>
+        </header>
+        <main>
+          {children}
+          <Background />
+        </main>
         <footer>
           <p>&copy; 2026 My ToDo App</p>
         </footer>
