@@ -16,5 +16,5 @@ datasource db {
 model Todo {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   title   String
-  date    DateTime @default(now())
+  date    String
 }
