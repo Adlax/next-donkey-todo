@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { formatDate } from "../utils/formatDate";
 import { TrashIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
 
 interface Todo {
   id: string;
@@ -12,6 +13,11 @@ interface Todo {
 const page = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+
+  const handleEdit = (todo: Todo) => {
+    router.push(`/todos/edit?id=${todo.id}`);
+  };
 
   useEffect(() => {
     const getTodos = async () => {
@@ -40,7 +46,12 @@ const page = () => {
                   <p className="date">{formatDate(todo.date)}</p>
                   <h2>{todo.title}</h2>
                   <div>
-                    <button className="btn btn-update" onClick={() => {}}>
+                    <button
+                      className="btn btn-update"
+                      onClick={() => {
+                        handleEdit(todo);
+                      }}
+                    >
                       <PencilSquareIcon style={{ width: "20px" }} />
                     </button>
                     <button className="btn btn-delete" onClick={() => {}}>
