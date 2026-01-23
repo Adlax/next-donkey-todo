@@ -38,7 +38,7 @@ const page = () => {
   };
 
   return (
-    <>
+    <section>
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -95,7 +95,7 @@ const page = () => {
           )}
         </div>
       </form>
-    </>
+    </section>
   );
 };
 

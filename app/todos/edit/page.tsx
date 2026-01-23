@@ -64,7 +64,7 @@ const page = () => {
   console.log(todo);
 
   return todo ? (
-    <>
+    <section>
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -119,7 +119,7 @@ const page = () => {
           </Link>
         </div>
       </form>
-    </>
+    </section>
   ) : (
     <p>Please wait...</p>
   );
